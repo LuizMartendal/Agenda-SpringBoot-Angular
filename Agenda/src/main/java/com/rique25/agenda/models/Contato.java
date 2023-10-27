@@ -37,8 +37,13 @@ public class Contato {
 
     @Length(max = 14, min = 9, message = "Número de telefone deve conter entre 9 a 14 caracteres")
     @Column
-    private long numero;
+    private String numero;
 
     @Column
     private boolean favorito;
+
+    @PrePersist
+    private void prePersist() {
+        numero = numero.replaceAll("[^\\d.]", "");
+    }
 }
