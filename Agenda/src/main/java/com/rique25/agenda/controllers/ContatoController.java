@@ -10,6 +10,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.UUID;
 
 @RestController
@@ -20,12 +21,12 @@ public class ContatoController {
     private ContatoService contatoService;
 
     @PostMapping
-    public Contato save( @RequestBody Contato contato ) {
+    public Contato save( @RequestBody @Valid Contato contato ) {
         return this.contatoService.save(contato);
     }
 
     @PutMapping("{id}")
-    public Contato update( @RequestBody Contato contato, @PathVariable String id ) {
+    public Contato update( @RequestBody @Valid Contato contato, @PathVariable String id ) {
         UUID uuid = UUID.fromString(id);
         return this.contatoService.update(uuid, contato);
     }

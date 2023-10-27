@@ -18,7 +18,7 @@ export class NewContatoComponent implements OnInit {
   formContato: FormGroup = this.formBuilder.group({
     nome: [null, Validators.required],
     email: [null, [Validators.compose([Validators.email, Validators.required])]],
-    numero: [null, [Validators.compose([Validators.minLength(10), Validators.maxLength(13), Validators.required])]]
+    numero: [null, [Validators.compose([Validators.minLength(9), Validators.maxLength(14), Validators.required])]]
   });
 
   constructor(
