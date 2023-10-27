@@ -16,4 +16,4 @@ Um projeto que desenvolvi durante um curso de Spring Boot e Angular sobre uma ag
 #### Back-end:
   Ao clonar o repositório, importe o projeto SpringBoot para a IDE desejada e tendo o Java instalado, você já pode inicia-lo.
 #### Front-end:
-  Para executar o front, é necessário ter o NodeJS e Angular CLI instalados. Após instalados basta iniciar o comando ```npm i``` ou ```npm i --f```, com as pastas do node_modules instalada inicie o projeto com ```ng s --o```
+  Para executar o front, é necessário ter o NodeJS e Angular CLI instalados. Após instalados, basta iniciar o comando ```npm i``` ou ```npm i --f```. Com as pastas do node_modules instalada, inicie o projeto com ```ng s --o```
