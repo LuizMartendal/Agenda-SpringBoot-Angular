@@ -1,0 +1,45 @@
+<mat-toolbar *ngIf="!isMobile" color="primary">
+  <div class="router-buttons">
+    <span routerLink="" style="cursor: pointer;">Agenda App</span>
+    <button style="margin-left: 20px;" mat-button active routerLink="list" routerLinkActive="active-route">
+      Agenda
+      <mat-icon>contacts</mat-icon>
+    </button>
+    <button mat-button routerLink="contato" routerLinkActive="active-route">
+      Novo Contato
+      <mat-icon>person_add</mat-icon>
+    </button>
+  </div>
+  <a href="https://github.com/Rique25" target="_blank">
+    <button mat-icon-button>
+      <mat-icon>favorite</mat-icon>
+    </button>
+  </a>
+</mat-toolbar>
+
+<mat-toolbar class="isMobile" *ngIf="isMobile" color="primary">
+  <div class="router-buttons">
+    <button style="width: 20%;" type="button" mat-button [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span routerLink="" style="cursor: pointer;">Agenda App</span>
+    <mat-menu class="menu" #menu="matMenu" xPosition="after">
+      <button style="margin-left: 20px;" mat-button active routerLink="list" routerLinkActive="active-route">
+        Agenda
+        <mat-icon>contacts</mat-icon>
+      </button>
+      <button mat-button routerLink="contato" routerLinkActive="active-route">
+        Novo Contato
+        <mat-icon>person_add</mat-icon>
+      </button>
+    </mat-menu>
+  </div>
+  <a href="https://github.com/LuizMartendal">
+    <button mat-icon-button>
+      <mat-icon>favorite</mat-icon>
+    </button>
+  </a>
+</mat-toolbar>
+
+<router-outlet></router-outlet>
+

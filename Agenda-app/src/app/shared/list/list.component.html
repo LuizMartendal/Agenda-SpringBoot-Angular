@@ -1,0 +1,75 @@
+<main>
+  <div class="container">
+    <mat-card>
+      <mat-card-content>
+        <h1>Agenda</h1>
+        <span>Aqui estão listados, todos os seus contatos.</span>
+      </mat-card-content>
+    </mat-card>
+    <div class="table-box" *ngIf="contatos">
+      <table mat-table [dataSource]="contatos" *ngIf="totalElementos > 0">
+
+        <ng-container matColumnDef="nome">
+          <th mat-header-cell *matHeaderCellDef> Nome </th>
+          <td mat-cell *matCellDef="let contato"> {{ contato?.nome }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef> Email </th>
+          <td mat-cell *matCellDef="let contato">
+            <a href="mailto:{{ contato?.email }}">{{ contato?.email }}</a>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="numero">
+          <th mat-header-cell *matHeaderCellDef> Número </th>
+          <td mat-cell *matCellDef="let contato">
+            <a href="callto:{{ contato?.numero }}">{{ contato?.numero }}</a>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="favorito">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let contato">
+            <mat-icon *ngIf="contato?.favorito === true"
+                      style="color: yellow; cursor: pointer;"
+                      (click)="setFavorite(contato?.id, contato?.favorito)">
+              star
+            </mat-icon>
+            <mat-icon *ngIf="contato?.favorito === false"
+                      style="color: gray; cursor: pointer;"
+                      (click)="setFavorite(contato?.id, contato?.favorito)">
+              star
+            </mat-icon>
+            <mat-icon color="primary"
+                      style="margin-left: 5%; margin-right: 5%; cursor: pointer;"
+                      (click)="update(contato?.id)">
+              edit
+            </mat-icon>
+            <mat-icon color="warn"
+                      style="cursor: pointer;"
+                      (click)="delete(contato?.id)">
+              delete
+            </mat-icon>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="colunas"></tr>
+        <tr mat-row *matRowDef="let row; columns: colunas;"></tr>
+      </table>
+
+      <mat-paginator *ngIf="totalElementos > 5" 
+                     [pageSizeOptions]="[5, 10, 20]"
+                     showFirstLastButtons
+                     [length]="totalElementos"
+                     (page)="onPage($event)">
+      </mat-paginator>
+
+      <mat-card *ngIf="totalElementos === 0">
+        <mat-card-content>
+          <p>Não há contatos cadastrados!</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</main>
