@@ -1,5 +1,5 @@
 # Agenda de contatos
-Um projeto que desenvolvi durante um curso de Spring Boot e Angular sobre uma agenda de contatos.
+Um CRUD básico utilizando Spring Boot e Angular sobre uma agenda.
 ## Tecnologias utilizadas
 - Spring Boot
 - Java
